@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=side
+comment0.target=Bishop(Side)
+comment1.params=
+comment1.target=java.lang.String\ toString()
+comment2.params=x1\ x2\ y1\ y2
+comment2.target=boolean\ isAllowed(int,\ int,\ int,\ int)
+comment3.params=x1\ x2\ y1\ y2
+comment3.target=boolean\ isSlantMovementValid(int,\ int,\ int,\ int)
+comment4.params=x1\ y1
+comment4.target=void\ addingEatablePiece(int,\ int)
+numComments=5

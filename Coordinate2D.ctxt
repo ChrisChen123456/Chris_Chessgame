@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Coordinate2D()
+comment1.params=
+comment1.target=Piece[][]\ getPieceArray()
+comment2.params=x1\ x2\ y1\ y2
+comment2.target=boolean\ movePiece(int,\ int,\ int,\ int)
+numComments=3
