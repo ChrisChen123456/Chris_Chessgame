@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class Pawn here.
  * 
@@ -34,5 +34,8 @@ public class Pawn extends Piece
             return true;
         }*/
         return true;
+    }
+    public void addingEatablePiece(int x1,int y1,ArrayList eatablePiece){
+        
     }
 }

@@ -16,14 +16,14 @@ public class Coordinate2D
         int y=0;
         while(y<8){
             if(y==0){
-                piece[y][0] = new Rook(black);
-                piece[y][1] = new Knight(black);
-                piece[y][2] = new Bishop(black);
-                piece[y][3] = new King(black);
-                piece[y][4] = new Queen(black);
-                piece[y][5] = new Bishop(black);
-                piece[y][6] = new Knight(black);
-                piece[y][7] = new Rook(black);
+                piece[y][0] = new Rook(black,piece);
+                piece[y][1] = new Knight(black,piece);
+                piece[y][2] = new Bishop(black,piece);
+                piece[y][3] = new King(black,piece);
+                piece[y][4] = new Queen(black,piece);
+                piece[y][5] = new Bishop(black,piece);
+                piece[y][6] = new Knight(black,piece);
+                piece[y][7] = new Rook(black,piece);
                 y++;
             }else if(y==1){
                 for(int x=0;x<8;x++){
@@ -36,14 +36,14 @@ public class Coordinate2D
                 }
                 y++;
             }else if(y==7){
-                piece[y][0] = new Rook(white);
-                piece[y][1] = new Knight(white);
-                piece[y][2] = new Bishop(white);
-                piece[y][3] = new Queen(white);
-                piece[y][4] = new King(white);
-                piece[y][5] = new Bishop(white);
-                piece[y][6] = new Knight(white);
-                piece[y][7] = new Rook(white);
+                piece[y][0] = new Rook(white,piece);
+                piece[y][1] = new Knight(white,piece);
+                piece[y][2] = new Bishop(white,piece);
+                piece[y][3] = new Queen(white,piece);
+                piece[y][4] = new King(white,piece);
+                piece[y][5] = new Bishop(white,piece);
+                piece[y][6] = new Knight(white,piece);
+                piece[y][7] = new Rook(white,piece);
                 y++;
             }else if(y>1&&y<6){
                 for(int t=2;t<6;t++){
@@ -60,7 +60,7 @@ public class Coordinate2D
     }
     public boolean movePiece(int x1,int x2,int y1,int y2)
     {
-        if(piece[y1][x1].isAllowed(x1,x2,y1,y2) && piece[y2][x2].isPieceInBetween(x1,x2,y1,y2) == null){
+        if(piece[y1][x1].isAllowed(x1,x2,y1,y2) && piece[y1][x1].isPieceInBetween(x1,x2,y1,y2) == null){
             if(piece[y2][x2]==null){
                 piece[y2][x2] = piece[y1][x1];
                 piece[y1][x1] = null;

@@ -10,7 +10,7 @@ public abstract class Piece
     private Side side;
     private int intact;
     private Piece[][] coordinate;
-    public ArrayList eatablePiece;
+    private ArrayList eatablePiece;
     Piece(Side side){
         this(side,null);
     }
@@ -44,13 +44,14 @@ public abstract class Piece
     public void setIntact(int intact){
         this.intact=intact;
     }
-    public ArrayList getEatablePiece(){
-        System.out.print("EatablePiece:           ");
+    public ArrayList getEatablePiece(int x1, int y1){
+        System.out.println("EatablePiece:           ");
         for(int y=0;y<8;y++){
             for(int x=0;x<8;x++){
                 if(coordinate[y][x]!=null){
                     for(int t=0;t<eatablePiece.size();t++){
-                        System.out.print(eatablePiece.get(t).toString()+"      ");
+                        //System.out.print(eatablePiece.get(t).toString()+"      ");
+                        coordinate[y][x].addingEatablePiece(x1,y1,eatablePiece);
                     }
                 }
             }
@@ -58,7 +59,7 @@ public abstract class Piece
         return eatablePiece;
     }
     public Piece isPieceInBetween(int x1,int x2,int y1,int y2){
-        getEatablePiece();
+        getEatablePiece(x1,y1);
         if(y1==y2){
             return isPieceInFrontOrSide(x1,x2,y1,false);
         }else if(x1==x2){
@@ -80,14 +81,14 @@ public abstract class Piece
     }
     public Piece isPieceInBetween_2(int x1,int x2,int y1,int y2){
         if(x2>7){
-            x2=7;
+            x2=8;
         }else if(x2<0){
-            x2=0;
+            x2=-1;
         }
         if(y2>7){
-            y2=7;
+            y2=8;
         }else if(y2<0){
-            y2=0;
+            y2=-1;
         }
         if(y1==y2){
             return isPieceInFrontOrSide(x1,x2,y1,false);
@@ -146,18 +147,17 @@ public abstract class Piece
         }
         return null;
     }
-    private Piece isPieceInFrontOrSide(int min, int max,int fix,boolean x_or_y){
+    private Piece isPieceInFrontOrSide(int min, int max,int fix,boolean isFront){
         for(int i=min+1;i<max;i++){
-            if(x_or_y && coordinate[i][fix] != null){
+            if(isFront && coordinate[i][fix] != null){
                 return coordinate[i][fix];
-            }else if(!x_or_y && coordinate[fix][i]!=null){
+            }else if(!isFront && coordinate[fix][i] != null){
                 return coordinate[fix][i];
             }
         }
         return null;
     }
     public boolean isItCastling(int x1,int x2,int y1,int y2,Side side){
-        getEatablePiece();
         if(getCoordinate()[y1][x1].getIntact()==0){
             if(getCoordinate()[7][3].toString().equals("[WKg]")){
                 if(getCoordinate()[7][0].toString().equals("[WRk]")&&x2==2&&y2==7&&getCoordinate()[7][0].getIntact()==0){
@@ -183,4 +183,5 @@ public abstract class Piece
         }
         return false;
     }
+    abstract void addingEatablePiece(int x1,int y1,ArrayList eatablepiece);
 }

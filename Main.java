@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Main
 {
-     public static void main(){
+     public static void main(String[] orgs){
          int x1=0;
          int x2=0;
          int y1=0;
@@ -49,7 +49,6 @@ public class Main
                  {
                      y1=input.charAt(6)-49;
                  }
-                 if(input.charAt(8)>=65 && input.charAt(8)<=72)
                  {
                      x2=input.charAt(8)-65;
                  }

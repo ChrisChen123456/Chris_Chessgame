@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class Bishop here.
  * 
@@ -7,8 +7,8 @@
  */
 public class Bishop extends Piece
 {
-    Bishop(Side side){
-        super(side);
+    Bishop(Side side,Piece[][] coordinate){
+        super(side,coordinate);
     }
     public String toString()
     {
@@ -24,17 +24,15 @@ public class Bishop extends Piece
         return null;
     }
     public boolean isAllowed(int x1,int x2,int y1,int y2){
-        addingEatablePiece(x1,y1);
         if(isSlantMovementValid(x1,x2,y1,y2)){
             return true;
         }
-        //return false;
-        return true;
+        return false;
     }
     private boolean isSlantMovementValid(int x1,int x2,int y1,int y2){
         return Math.abs(x1-x2)==Math.abs(y1-y2);
     }
-    private void addingEatablePiece(int x1,int y1){
+    public void addingEatablePiece(int x1,int y1,ArrayList eatablePiece){
         eatablePiece.clear();
         eatablePiece.add(isPieceInBetween_2(x1,x1+8,y1,y1+8));
         eatablePiece.add(isPieceInBetween_2(x1,x1-8,y1,y1+8));

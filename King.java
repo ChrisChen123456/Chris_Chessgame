@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * Write a description of class King here.
  * 
@@ -6,8 +7,8 @@
  */
 public class King extends Piece
 {
-    King(Side side){
-        super(side);
+    King(Side side,Piece[][] coordinate){
+        super(side,coordinate);
         super.setIntact(0);
     }
     public String toString()
@@ -21,7 +22,6 @@ public class King extends Piece
         return null;
     }
     public boolean isAllowed(int x1,int x2,int y1,int y2){
-        addingEatablePiece(x1,y1);
         if((isHorizontalMovementValid(x1,x2) || isVerticalMovementValid(y1,y2))){
             setIntact(1);
             return true;
@@ -32,11 +32,11 @@ public class King extends Piece
             setIntact(1);
             return true;
         }
-        //return false;
-        return true;
+        return false;
     }
-    private void addingEatablePiece(int x1,int y1){
+    public void addingEatablePiece(int x1,int y1,ArrayList eatablePiece){
         eatablePiece.clear();
+        System.out.println("exe");
         eatablePiece.add(isPieceInBetween_2(x1,x1+2,y1,y1+2));
         eatablePiece.add(isPieceInBetween_2(x1,x1+2,y1,y1-2));
         eatablePiece.add(isPieceInBetween_2(x1,x1-2,y1,y1+2));
@@ -45,14 +45,6 @@ public class King extends Piece
         eatablePiece.add(isPieceInBetween_2(x1,x1-2,y1,y1));
         eatablePiece.add(isPieceInBetween_2(x1,x1,y1,y1+2));
         eatablePiece.add(isPieceInBetween_2(x1,x1,y1,y1-2));
-    }
-    private boolean isKingBeenThreaten(int x,int y){
-        if(isBlack()){
-            
-        }else if(isWhite()){
-            
-        }
-        return true;
     }
     private boolean isHorizontalMovementValid(int x1,int x2){
         return Math.abs(x1-x2)==1;
