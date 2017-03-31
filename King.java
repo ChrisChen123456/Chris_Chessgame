@@ -35,8 +35,6 @@ public class King extends Piece
         return false;
     }
     public void addingEatablePiece(int x1,int y1,ArrayList eatablePiece){
-        eatablePiece.clear();
-        System.out.println("exe");
         eatablePiece.add(isPieceInBetween_2(x1,x1+2,y1,y1+2));
         eatablePiece.add(isPieceInBetween_2(x1,x1+2,y1,y1-2));
         eatablePiece.add(isPieceInBetween_2(x1,x1-2,y1,y1+2));

@@ -33,7 +33,6 @@ public class Bishop extends Piece
         return Math.abs(x1-x2)==Math.abs(y1-y2);
     }
     public void addingEatablePiece(int x1,int y1,ArrayList eatablePiece){
-        eatablePiece.clear();
         eatablePiece.add(isPieceInBetween_2(x1,x1+8,y1,y1+8));
         eatablePiece.add(isPieceInBetween_2(x1,x1-8,y1,y1+8));
         eatablePiece.add(isPieceInBetween_2(x1,x1-8,y1,y1-8));

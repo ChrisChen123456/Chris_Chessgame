@@ -49,13 +49,17 @@ public abstract class Piece
         for(int y=0;y<8;y++){
             for(int x=0;x<8;x++){
                 if(coordinate[y][x]!=null){
-                    for(int t=0;t<eatablePiece.size();t++){
-                        //System.out.print(eatablePiece.get(t).toString()+"      ");
-                        coordinate[y][x].addingEatablePiece(x1,y1,eatablePiece);
-                    }
+                    coordinate[y][x].addingEatablePiece(x1,y1,eatablePiece);
                 }
             }
         }
+        for(int t=0;t<eatablePiece.size();t++){
+            if(eatablePiece.get(t)!=null){
+               System.out.print(eatablePiece.get(t).toString());
+            }
+        }
+        System.out.println();
+        eatablePiece.clear();
         return eatablePiece;
     }
     public Piece isPieceInBetween(int x1,int x2,int y1,int y2){
@@ -107,6 +111,7 @@ public abstract class Piece
                 return isPieceInSlantTrajectory(x2,x1,y2,y1);
             }
         }
+        System.out.print("y:"+y1+"x:"+x1+"    ");
         return null;
     }
     private Piece isPieceInSlantTrajectory(boolean isx1biggerthanx2,int x1,int x2,int y1){

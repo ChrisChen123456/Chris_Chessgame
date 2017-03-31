@@ -29,7 +29,6 @@ public class Rook extends Piece
         return false;
     }
     public void addingEatablePiece(int x1,int y1,ArrayList eatablePiece){
-        eatablePiece.clear();
         eatablePiece.add(isPieceInBetween_2(x1,x1,y1,-1));
         eatablePiece.add(isPieceInBetween_2(x1,-1,y1,y1));
         eatablePiece.add(isPieceInBetween_2(x1,x1,y1,8));
